@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v5
+        uses: actions/checkout@v5
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -24,15 +24,16 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-      - name: Type check
+      - name: Type check web code
         run: npm run check
 
-      - name: Build
-        run: npx run build:web
+      - name: Build for web
+        run: npm run build:web
 
-      - name: Upload artifacts
+      - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: web-build-${{ matrix.node-version }}
