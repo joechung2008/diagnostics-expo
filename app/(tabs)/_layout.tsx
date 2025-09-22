@@ -12,7 +12,7 @@ export default function TabsLayout() {
   const { currentId } = useApp();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: colors.background }]}>
       <Header />
       <View style={styles.tabsContainer}>
         <Tabs

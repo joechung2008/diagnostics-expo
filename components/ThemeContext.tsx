@@ -1,7 +1,7 @@
 import { darkTheme, lightTheme } from '@/lib/theme';
 import type { ThemeContextType, ThemeType } from '@/lib/types';
 import React, { createContext, use, useEffect, useMemo, useState } from 'react';
-import { Appearance, ColorSchemeName } from 'react-native';
+import { Appearance, ColorSchemeName, Platform } from 'react-native';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
@@ -32,6 +32,13 @@ export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   const isDark =
     theme === 'dark' || (theme === 'system' && systemTheme === 'dark');
   const colors = isDark ? darkTheme : lightTheme;
+
+  useEffect(() => {
+    // Set document background for web platform
+    if (Platform.OS === 'web' && document?.body) {
+      document.body.style.backgroundColor = colors.background;
+    }
+  }, [colors.background]);
 
   const contextValue = useMemo(
     () => ({ theme, colors, setTheme, isDark }),
