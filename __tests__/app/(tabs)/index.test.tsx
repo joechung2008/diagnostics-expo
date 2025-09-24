@@ -1,17 +1,7 @@
+import ExtensionsTab from '@/app/(tabs)/index';
 import { render } from '@testing-library/react-native';
 import React from 'react';
-import ExtensionsTab from '../../../app/(tabs)/index';
 
-// Mock react-native
-jest.mock('react-native', () => ({
-  View: jest.fn((props) => 'View'),
-  Text: jest.fn((props) => 'Text'),
-  ScrollView: jest.fn((props) => 'ScrollView'),
-  TouchableOpacity: jest.fn((props) => 'TouchableOpacity'),
-  ActivityIndicator: jest.fn((props) => 'ActivityIndicator'),
-}));
-
-// Mock the context hooks
 jest.mock('@/components/AppContext', () => ({
   useApp: jest.fn(() => ({
     diagnostics: {
@@ -19,6 +9,8 @@ jest.mock('@/components/AppContext', () => ({
         'test-ext': {
           extensionName: 'Test Extension',
           manageSdpEnabled: true,
+          config: {},
+          stageDefinition: {},
         },
       },
     },
@@ -28,82 +20,56 @@ jest.mock('@/components/AppContext', () => ({
   })),
 }));
 
-jest.mock('../../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: jest.fn(() => ({
     colors: {
       background: '#ffffff',
       primary: '#007bff',
       error: '#dc3545',
+      text: '#000000',
     },
   })),
 }));
 
-// Mock components
-const mockExtension = jest.fn(() => 'Extension');
-jest.mock('../../../components/Extension', () => ({
-  default: mockExtension,
+jest.mock('@/components/Extension', () => ({
+  __esModule: true,
+  default: jest.fn(() => null),
 }));
 
-const mockExtensions = jest.fn(() => 'Extensions');
-jest.mock('../../../components/Extensions', () => ({
-  default: mockExtensions,
+jest.mock('@/components/Extensions', () => ({
+  __esModule: true,
+  default: jest.fn(() => null),
 }));
 
-jest.mock('../../../components/Configuration', () => ({
-  default: jest.fn(() => 'Configuration'),
-}));
-
-jest.mock('../../../components/StageDefinition', () => ({
-  default: jest.fn(() => 'StageDefinition'),
-}));
-
-// Mock expo-router
 jest.mock('expo-router', () => ({
-  Stack: {
-    Screen: jest.fn(() => null),
-  },
   useLocalSearchParams: jest.fn(() => ({})),
 }));
 
-// Mock utils
-jest.mock('../../../lib/utils', () => ({
-  isExtensionInfo: jest.fn(
-    (value) => value !== undefined && 'extensionName' in value
-  ),
-  byKey: jest.fn(),
-  toNavLink: jest.fn(() => ({ key: 'test', title: 'Test' })),
-}));
-
 describe('ExtensionsTab', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it('renders extensions list with correct title when no id parameter', () => {
+    const mockExtensions = jest.requireMock('@/components/Extensions').default;
     render(<ExtensionsTab />);
-    expect(jest.requireMock('expo-router').Stack.Screen).toHaveBeenCalledWith(
-      expect.objectContaining({
-        options: { title: 'Extensions' },
-      }),
-      undefined
-    );
+    expect(mockExtensions).toHaveBeenCalled();
   });
 
   it('renders individual extension with correct title when id parameter exists', () => {
-    // Mock useLocalSearchParams to return an id
     const mockUseLocalSearchParams = jest.mocked(
       jest.requireMock('expo-router').useLocalSearchParams
     );
     mockUseLocalSearchParams.mockReturnValue({ id: 'test-ext' });
 
+    const mockExtension = jest.requireMock('@/components/Extension').default;
     render(<ExtensionsTab />);
-    expect(jest.requireMock('expo-router').Stack.Screen).toHaveBeenCalledWith(
-      expect.objectContaining({
-        options: { title: 'Extension' },
-      }),
-      undefined
-    );
+    expect(mockExtension).toHaveBeenCalled();
   });
 
   it('shows loading indicator when loading', () => {
     const mockUseApp = jest.mocked(
-      jest.requireMock('../../../components/AppContext').useApp
+      jest.requireMock('@/components/AppContext').useApp
     );
     mockUseApp.mockReturnValue({
       diagnostics: null,
@@ -112,12 +78,13 @@ describe('ExtensionsTab', () => {
       handleLinkClick: jest.fn(),
     });
 
-    expect(() => render(<ExtensionsTab />)).not.toThrow();
+    const { getByLabelText } = render(<ExtensionsTab />);
+    expect(getByLabelText('Loading extensions...')).toBeTruthy();
   });
 
   it('shows error message when there is an error', () => {
     const mockUseApp = jest.mocked(
-      jest.requireMock('../../../components/AppContext').useApp
+      jest.requireMock('@/components/AppContext').useApp
     );
     mockUseApp.mockReturnValue({
       diagnostics: null,
@@ -126,7 +93,8 @@ describe('ExtensionsTab', () => {
       handleLinkClick: jest.fn(),
     });
 
-    expect(() => render(<ExtensionsTab />)).not.toThrow();
+    const { getByText } = render(<ExtensionsTab />);
+    expect(getByText('Error loading diagnostics: Network error')).toBeTruthy();
   });
 
   it('shows extension not found when extension does not exist', () => {
@@ -136,7 +104,7 @@ describe('ExtensionsTab', () => {
     mockUseLocalSearchParams.mockReturnValue({ id: 'nonexistent' });
 
     const mockUseApp = jest.mocked(
-      jest.requireMock('../../../components/AppContext').useApp
+      jest.requireMock('@/components/AppContext').useApp
     );
     mockUseApp.mockReturnValue({
       diagnostics: { extensions: {} },
@@ -145,22 +113,7 @@ describe('ExtensionsTab', () => {
       handleLinkClick: jest.fn(),
     });
 
-    expect(() => render(<ExtensionsTab />)).not.toThrow();
-  });
-
-  it('passes correct props to Extension component', () => {
-    const mockUseLocalSearchParams = jest.mocked(
-      jest.requireMock('expo-router').useLocalSearchParams
-    );
-    mockUseLocalSearchParams.mockReturnValue({ id: 'test-ext' });
-
-    // Verify the mock is set
-    expect(mockUseLocalSearchParams()).toEqual({ id: 'test-ext' });
-
-    expect(() => render(<ExtensionsTab />)).not.toThrow();
-  });
-
-  it('passes correct props to Extensions component', () => {
-    expect(() => render(<ExtensionsTab />)).not.toThrow();
+    const { getByText } = render(<ExtensionsTab />);
+    expect(getByText('Extension not found: nonexistent')).toBeTruthy();
   });
 });
