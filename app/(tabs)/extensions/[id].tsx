@@ -1,10 +1,12 @@
 import { useApp } from '@/components/AppContext';
 import Extension from '@/components/Extension';
+import ExtensionLoading from '@/components/ExtensionLoading';
+import Error from '@/components/Error';
 import { useTheme } from '@/components/ThemeContext';
 import { isExtensionInfo } from '@/lib/utils';
 import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 export default function ExtensionTab() {
   const { colors } = useTheme();
@@ -32,31 +34,21 @@ export default function ExtensionTab() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={dynamicStyles.tabPanel}>
-        {loading ? (
-          <View style={dynamicStyles.loading}>
-            <ActivityIndicator
-              size="large"
-              color={colors.primary}
-              accessibilityLabel="Loading extension..."
-            />
-          </View>
-        ) : error ? (
-          <Text style={dynamicStyles.errorText}>
-            Error loading extension: {error.message}
-          </Text>
-        ) : isExtensionInfo(extension) ? (
-          <Extension
-            extensionName={extension.extensionName}
-            manageSdpEnabled={extension.manageSdpEnabled}
-            config={extension.config}
-            stageDefinition={extension.stageDefinition}
-          />
-        ) : (
-          <Text style={dynamicStyles.errorText}>Select an extension</Text>
-        )}
-      </View>
+    <View style={[styles.container, dynamicStyles.tabPanel]}>
+      {loading ? (
+        <ExtensionLoading />
+      ) : error ? (
+        <Error message={`Error loading extension: ${error.message}`} />
+      ) : isExtensionInfo(extension) ? (
+        <Extension
+          extensionName={extension.extensionName}
+          manageSdpEnabled={extension.manageSdpEnabled}
+          config={extension.config}
+          stageDefinition={extension.stageDefinition}
+        />
+      ) : (
+        <Text style={dynamicStyles.errorText}>Select an extension</Text>
+      )}
     </View>
   );
 }
