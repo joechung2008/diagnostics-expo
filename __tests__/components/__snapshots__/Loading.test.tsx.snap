@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading component renders loading indicator and message 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <ActivityIndicator
+    accessibilityLabel="Loading extension..."
+    color="#00ff00"
+    size="large"
+  />
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 14,
+        "marginTop": 12,
+      }
+    }
+  >
+    Loading extension...
+  </Text>
+</View>
+`;

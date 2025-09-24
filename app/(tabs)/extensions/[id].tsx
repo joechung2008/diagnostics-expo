@@ -1,12 +1,12 @@
 import { useApp } from '@/components/AppContext';
-import Extension from '@/components/Extension';
-import ExtensionLoading from '@/components/ExtensionLoading';
 import Error from '@/components/Error';
+import Extension from '@/components/Extension';
+import Loading from '@/components/Loading';
 import { useTheme } from '@/components/ThemeContext';
 import { isExtensionInfo } from '@/lib/utils';
 import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 export default function ExtensionTab() {
   const { colors } = useTheme();
@@ -36,7 +36,7 @@ export default function ExtensionTab() {
   return (
     <View style={[styles.container, dynamicStyles.tabPanel]}>
       {loading ? (
-        <ExtensionLoading />
+        <Loading message="Loading extension..." />
       ) : error ? (
         <Error message={`Error loading extension: ${error.message}`} />
       ) : isExtensionInfo(extension) ? (

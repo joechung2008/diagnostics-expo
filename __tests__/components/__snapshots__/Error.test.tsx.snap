@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Error component renders the error message and matches snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#ff0000",
+        "fontSize": 16,
+        "textAlign": "center",
+      }
+    }
+  >
+    Something went wrong
+  </Text>
+</View>
+`;

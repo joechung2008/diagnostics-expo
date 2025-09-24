@@ -1,21 +1,32 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native';
 import { useTheme } from '@/components/ThemeContext';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-const Error: React.FC<{ message: string }> = ({ message }) => {
+interface ErrorProps {
+  message: string;
+}
+
+const Error = ({ message }: ErrorProps) => {
   const { colors } = useTheme();
 
+  const styles = StyleSheet.create({
+    container: {
+      alignItems: 'center',
+      flex: 1,
+      justifyContent: 'center',
+    },
+    errorText: {
+      color: colors.error,
+      fontSize: 16,
+      textAlign: 'center',
+    },
+  });
+
   return (
-    <Text style={[styles.errorText, { color: colors.error }]}>{message}</Text>
+    <View style={styles.container}>
+      <Text style={styles.errorText}>{message}</Text>
+    </View>
   );
 };
-
-const styles = StyleSheet.create({
-  errorText: {
-    fontSize: 16,
-    textAlign: 'center',
-    // color is injected from theme via inline style so tests can override if needed
-  },
-});
 
 export default Error;
