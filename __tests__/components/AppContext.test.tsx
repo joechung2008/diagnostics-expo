@@ -12,7 +12,7 @@ jest.mock('expo-router', () => ({
 }));
 
 // Mock fetch
-global.fetch = jest.fn();
+globalThis.fetch = jest.fn();
 
 const TestComponent = () => {
   useApp();
@@ -22,7 +22,7 @@ const TestComponent = () => {
 describe('AppContext', () => {
   beforeEach(() => {
     jest.clearAllMocks();
-    (global.fetch as jest.Mock).mockResolvedValue({
+    (globalThis.fetch as jest.Mock).mockResolvedValue({
       ok: true,
       json: () =>
         Promise.resolve({
@@ -99,7 +99,7 @@ describe('AppContext', () => {
         await new Promise((resolve) => setTimeout(resolve, 0));
       });
 
-      expect(global.fetch).toHaveBeenCalledWith(Environment.Public);
+      expect(globalThis.fetch).toHaveBeenCalledWith(Environment.Public);
     });
 
     it('handles fetch success', async () => {
@@ -111,7 +111,7 @@ describe('AppContext', () => {
         serverInfo: { serverId: 'test-server' },
       };
 
-      (global.fetch as jest.Mock).mockResolvedValue({
+      (globalThis.fetch as jest.Mock).mockResolvedValue({
         ok: true,
         json: () => Promise.resolve(mockData),
       });
@@ -147,7 +147,9 @@ describe('AppContext', () => {
 
     it('handles fetch error', async () => {
       const errorMessage = 'Network error';
-      (global.fetch as jest.Mock).mockRejectedValue(new Error(errorMessage));
+      (globalThis.fetch as jest.Mock).mockRejectedValue(
+        new Error(errorMessage)
+      );
 
       let capturedContext: any = null;
 
@@ -190,7 +192,7 @@ describe('AppContext', () => {
         serverInfo: { serverId: 'test-server' },
       };
 
-      (global.fetch as jest.Mock).mockResolvedValue({
+      (globalThis.fetch as jest.Mock).mockResolvedValue({
         ok: true,
         json: () => Promise.resolve(mockData),
       });

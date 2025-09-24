@@ -5,7 +5,7 @@ import { ThemeProvider, useTheme } from '../../components/ThemeContext';
 import { darkTheme } from '../../lib/theme';
 
 // Mock document for web platform
-Object.defineProperty(global, 'document', {
+Object.defineProperty(globalThis, 'document', {
   value: {
     body: {
       style: {},
@@ -22,8 +22,8 @@ const TestComponent = () => {
 describe('ThemeContext', () => {
   beforeEach(() => {
     // Reset document body style
-    if (global.document?.body?.style) {
-      global.document.body.style.backgroundColor = '';
+    if (globalThis.document?.body?.style) {
+      globalThis.document.body.style.backgroundColor = '';
     }
   });
 
