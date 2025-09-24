@@ -1,0 +1,467 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Configuration renders configuration key-value pairs correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Configuration
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        apiUrl
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        https://api.example.com
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        timeout
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        30000
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        retries
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        3
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        debug
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        false
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Configuration renders empty configuration object 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Configuration
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Configuration renders single configuration item 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Configuration
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        version
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        1.0.0
+      </Text>
+    </View>
+  </View>
+</View>
+`;

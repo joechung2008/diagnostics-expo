@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Extension renders extension name and config 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    {
+      "display": "flex",
+      "flexDirection": "column",
+      "gap": 16,
+      "padding": 10,
+    }
+  }
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        {
+          "color": "#000000",
+          "fontSize": 18,
+          "fontWeight": "600",
+          "marginBottom": 10,
+        }
+      }
+    >
+      Test Extension
+    </Text>
+    <MockConfiguration
+      config={
+        {
+          "apiUrl": "https://api.example.com",
+          "timeout": "30000",
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Extension renders extension name and stage definition 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    {
+      "display": "flex",
+      "flexDirection": "column",
+      "gap": 16,
+      "padding": 10,
+    }
+  }
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        {
+          "color": "#000000",
+          "fontSize": 18,
+          "fontWeight": "600",
+          "marginBottom": 10,
+        }
+      }
+    >
+      Another Extension
+    </Text>
+    <MockStageDefinition
+      stageDefinition={
+        {
+          "development": [
+            "dev-server-1",
+            "dev-server-2",
+          ],
+          "production": [
+            "prod-server-1",
+          ],
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Extension renders extension name only when no config or stage definition 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    {
+      "display": "flex",
+      "flexDirection": "column",
+      "gap": 16,
+      "padding": 10,
+    }
+  }
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        {
+          "color": "#000000",
+          "fontSize": 18,
+          "fontWeight": "600",
+          "marginBottom": 10,
+        }
+      }
+    >
+      Minimal Extension
+    </Text>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`Extension renders extension name with both config and stage definition 1`] = `
+<RCTScrollView
+  contentContainerStyle={
+    {
+      "display": "flex",
+      "flexDirection": "column",
+      "gap": 16,
+      "padding": 10,
+    }
+  }
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <View>
+    <Text
+      style={
+        {
+          "color": "#000000",
+          "fontSize": 18,
+          "fontWeight": "600",
+          "marginBottom": 10,
+        }
+      }
+    >
+      Full Extension
+    </Text>
+    <MockConfiguration
+      config={
+        {
+          "apiUrl": "https://api.example.com",
+          "timeout": "30000",
+        }
+      }
+    />
+    <MockStageDefinition
+      stageDefinition={
+        {
+          "development": [
+            "dev-server-1",
+            "dev-server-2",
+          ],
+          "production": [
+            "prod-server-1",
+          ],
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;

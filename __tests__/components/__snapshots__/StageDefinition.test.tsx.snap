@@ -1,0 +1,981 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StageDefinition matches snapshot with complete stage definition data 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Stage Definitions
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        development
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        dev-server-1, dev-server-2
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        production
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        prod-server-1
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        staging
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        staging-server-1, staging-server-2, staging-server-3
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`StageDefinition renders all stage keys and values correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Stage Definitions
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        development
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        dev-server-1, dev-server-2
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        production
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        prod-server-1
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        staging
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        staging-server-1, staging-server-2, staging-server-3
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`StageDefinition renders empty stage definition 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Stage Definitions
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`StageDefinition renders single stage definition 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Stage Definitions
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        production
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        prod-server-1
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`StageDefinition renders stage definition title 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Stage Definitions
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        development
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        dev-server-1, dev-server-2
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        production
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        prod-server-1
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        staging
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        staging-server-1, staging-server-2, staging-server-3
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`StageDefinition renders stage with empty server list 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#000000",
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "marginBottom": 10,
+      }
+    }
+  >
+    Stage Definitions
+  </Text>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Key
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        empty
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

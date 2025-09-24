@@ -1,0 +1,719 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServerInfo handles optional fields gracefully 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "padding": 10,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Name
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Hostname
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        test-server.example.com
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Uptime
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Server ID
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        server-123
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Deployment ID
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        deploy-456
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Node Versions
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      />
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Extension Sync | Total Sync All Count
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        0
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`ServerInfo renders all server information correctly 1`] = `
+<View
+  style={
+    {
+      "backgroundColor": "#ffffff",
+      "padding": 10,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#f5f5f5",
+        "borderColor": "#cccccc",
+        "borderWidth": 1,
+      }
+    }
+  >
+    <View
+      style={
+        {
+          "backgroundColor": "#e0e0e0",
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Name
+      </Text>
+      <Text
+        style={
+          {
+            "color": "#000000",
+            "flex": 1,
+            "fontWeight": "bold",
+            "paddingLeft": 5,
+            "paddingRight": 5,
+          }
+        }
+      >
+        Value
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Hostname
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        test-server.example.com
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Uptime
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        1234567890
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Server ID
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        server-123
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Deployment ID
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        deploy-456
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Node Versions
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        v18.17.0
+      </Text>
+    </View>
+    <View
+      style={
+        {
+          "borderBottomColor": "#cccccc",
+          "borderBottomWidth": 1,
+          "flexDirection": "row",
+          "paddingBottom": 5,
+          "paddingTop": 5,
+        }
+      }
+    >
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        Extension Sync | Total Sync All Count
+      </Text>
+      <Text
+        style={
+          [
+            {
+              "flex": 1,
+              "minWidth": 0,
+              "paddingLeft": 5,
+              "paddingRight": 5,
+            },
+            {
+              "color": "#000000",
+              "flex": 1,
+              "flexShrink": 1,
+            },
+          ]
+        }
+      >
+        42
+      </Text>
+    </View>
+  </View>
+</View>
+`;
