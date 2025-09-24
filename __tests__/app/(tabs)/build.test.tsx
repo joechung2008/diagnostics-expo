@@ -1,15 +1,7 @@
 import { render } from '@testing-library/react-native';
 import React from 'react';
-import BuildTab from '../../../app/(tabs)/build';
+import BuildTab from '@/app/(tabs)/build';
 
-// Mock react-native
-jest.mock('react-native', () => ({
-  View: jest.fn((props) => 'View'),
-  Text: jest.fn((props) => 'Text'),
-  ActivityIndicator: jest.fn((props) => 'ActivityIndicator'),
-}));
-
-// Mock the context hooks
 jest.mock('@/components/AppContext', () => ({
   useApp: jest.fn(() => ({
     diagnostics: {
@@ -29,21 +21,14 @@ jest.mock('@/components/ThemeContext', () => ({
       background: '#ffffff',
       primary: '#007bff',
       error: '#dc3545',
+      text: '#000000',
     },
   })),
 }));
 
-// Mock components
-const mockBuildInfo = jest.fn(() => 'BuildInfo');
 jest.mock('@/components/BuildInfo', () => ({
-  default: mockBuildInfo,
-}));
-
-// Mock expo-router
-jest.mock('expo-router', () => ({
-  Stack: {
-    Screen: jest.fn(() => null),
-  },
+  __esModule: true,
+  default: jest.fn(() => null),
 }));
 
 describe('BuildTab', () => {
@@ -51,17 +36,13 @@ describe('BuildTab', () => {
     jest.clearAllMocks();
   });
 
-  it('renders with correct title', () => {
+  it('renders build info when build info exists', () => {
+    const mockBuildInfo = jest.requireMock('@/components/BuildInfo').default;
     render(<BuildTab />);
-    expect(jest.requireMock('expo-router').Stack.Screen).toHaveBeenCalledWith(
-      expect.objectContaining({
-        options: { title: 'Build Info' },
-      }),
-      undefined
-    );
+    expect(mockBuildInfo).toHaveBeenCalled();
   });
 
-  it('renders loading indicator when loading', () => {
+  it('shows loading indicator when loading', () => {
     const mockUseApp = jest.mocked(
       jest.requireMock('@/components/AppContext').useApp
     );
@@ -71,10 +52,11 @@ describe('BuildTab', () => {
       loading: true,
     });
 
-    expect(() => render(<BuildTab />)).not.toThrow();
+    const { getByLabelText } = render(<BuildTab />);
+    expect(getByLabelText('Loading diagnostics...')).toBeTruthy();
   });
 
-  it('renders error message when there is an error', () => {
+  it('shows error message when there is an error', () => {
     const mockUseApp = jest.mocked(
       jest.requireMock('@/components/AppContext').useApp
     );
@@ -84,11 +66,8 @@ describe('BuildTab', () => {
       loading: false,
     });
 
-    expect(() => render(<BuildTab />)).not.toThrow();
-  });
-
-  it('renders build info when build info exists', () => {
-    expect(() => render(<BuildTab />)).not.toThrow();
+    const { getByText } = render(<BuildTab />);
+    expect(getByText('Error loading diagnostics: Network error')).toBeTruthy();
   });
 
   it('renders nothing when build info does not exist', () => {
@@ -101,6 +80,8 @@ describe('BuildTab', () => {
       loading: false,
     });
 
-    expect(() => render(<BuildTab />)).not.toThrow();
+    const mockBuildInfo = jest.requireMock('@/components/BuildInfo').default;
+    render(<BuildTab />);
+    expect(mockBuildInfo).not.toHaveBeenCalled();
   });
 });
