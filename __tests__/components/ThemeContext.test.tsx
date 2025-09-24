@@ -1,8 +1,8 @@
+import { ThemeProvider, useTheme } from '@/components/ThemeContext';
+import { darkTheme } from '@/lib/theme';
 import { render } from '@testing-library/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import { ThemeProvider, useTheme } from '../../components/ThemeContext';
-import { darkTheme } from '../../lib/theme';
 
 // Mock document for web platform
 Object.defineProperty(globalThis, 'document', {

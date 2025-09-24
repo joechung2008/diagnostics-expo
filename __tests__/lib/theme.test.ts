@@ -1,5 +1,5 @@
-import { lightTheme, darkTheme } from '../../lib/theme';
-import type { ThemeColors } from '../../lib/types';
+import { lightTheme, darkTheme } from '@/lib/theme';
+import type { ThemeColors } from '@/lib/types';
 
 describe('Theme', () => {
   describe('lightTheme', () => {

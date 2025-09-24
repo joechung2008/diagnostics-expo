@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react-native';
-import Extension from '../../components/Extension';
+import Extension from '@/components/Extension';
 
 // Mock the ThemeContext
-jest.mock('../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: () => ({
     colors: {
       background: '#ffffff',
@@ -15,14 +15,14 @@ jest.mock('../../components/ThemeContext', () => ({
 }));
 
 // Mock child components
-jest.mock('../../components/Configuration', () => {
+jest.mock('@/components/Configuration', () => {
   return {
     __esModule: true,
     default: 'MockConfiguration',
   };
 });
 
-jest.mock('../../components/StageDefinition', () => {
+jest.mock('@/components/StageDefinition', () => {
   return {
     __esModule: true,
     default: 'MockStageDefinition',

@@ -1,4 +1,4 @@
-import TabsLayout from '../../../app/(tabs)/_layout';
+import TabsLayout from '@/app/(tabs)/_layout';
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
@@ -11,13 +11,13 @@ jest.mock('react-native', () => ({
 }));
 
 // Mock the context hooks
-jest.mock('../../../components/AppContext', () => ({
+jest.mock('@/components/AppContext', () => ({
   useApp: jest.fn(() => ({
     currentId: 'test-id',
   })),
 }));
 
-jest.mock('../../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: () => ({
     colors: {
       background: '#ffffff',
@@ -30,7 +30,7 @@ jest.mock('../../../components/ThemeContext', () => ({
 }));
 
 // Mock Header component
-jest.mock('../../../components/Header', () => ({
+jest.mock('@/components/Header', () => ({
   default: jest.fn(() => 'Header'),
 }));
 
@@ -63,7 +63,7 @@ describe('TabsLayout', () => {
       jest.requireMock('expo-router').usePathname
     );
     const mockUseApp = jest.mocked(
-      jest.requireMock('../../../components/AppContext').useApp
+      jest.requireMock('@/components/AppContext').useApp
     );
 
     // Test when on root path with currentId

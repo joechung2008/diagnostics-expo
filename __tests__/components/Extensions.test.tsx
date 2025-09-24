@@ -1,8 +1,8 @@
+import Extensions from '@/components/Extensions';
 import { render } from '@testing-library/react-native';
-import Extensions from '../../components/Extensions';
 
 // Mock the ThemeContext
-jest.mock('../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: () => ({
     colors: {
       background: '#ffffff',
@@ -14,7 +14,7 @@ jest.mock('../../components/ThemeContext', () => ({
 }));
 
 // Mock the utils functions
-jest.mock('../../lib/utils', () => ({
+jest.mock('@/lib/utils', () => ({
   byKey: jest.fn((a, b) => a.key.localeCompare(b.key)),
   isExtensionInfo: jest.fn(
     (value) => value && typeof value === 'object' && 'extensionName' in value

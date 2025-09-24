@@ -1,8 +1,8 @@
+import ServerInfo from '@/components/ServerInfo';
 import { render } from '@testing-library/react-native';
-import ServerInfo from '../../components/ServerInfo';
 
 // Mock the ThemeContext
-jest.mock('../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: () => ({
     colors: {
       background: '#ffffff',

@@ -1,8 +1,8 @@
 import { render } from '@testing-library/react-native';
-import Configuration from '../../components/Configuration';
+import Configuration from '@/components/Configuration';
 
 // Mock the ThemeContext
-jest.mock('../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: () => ({
     colors: {
       background: '#ffffff',

@@ -1,4 +1,4 @@
-import { Environment, getEnvironmentName } from '../../lib/environment';
+import { Environment, getEnvironmentName } from '@/lib/environment';
 
 describe('Environment', () => {
   describe('Environment constants', () => {

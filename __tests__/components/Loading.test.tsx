@@ -1,8 +1,8 @@
+import Loading from '@/components/Loading';
 import { render } from '@testing-library/react-native';
 import React from 'react';
-import Loading from '../../components/Loading';
 
-jest.mock('../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: () => ({
     colors: {
       background: '#ffffff',

@@ -1,15 +1,15 @@
-import RootLayout from '../../app/_layout';
+import RootLayout from '@/app/_layout';
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
 // Mock the context providers
-jest.mock('../../components/AppContext', () => ({
+jest.mock('@/components/AppContext', () => ({
   AppProvider: jest.fn(
     ({ children }: { children: React.ReactNode }) => children
   ),
 }));
 
-jest.mock('../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   ThemeProvider: jest.fn(
     ({ children }: { children: React.ReactNode }) => children
   ),

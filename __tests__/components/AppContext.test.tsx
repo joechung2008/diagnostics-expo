@@ -1,8 +1,8 @@
+import { AppProvider, useApp } from '@/components/AppContext';
+import { Environment } from '@/lib/environment';
 import { act, render } from '@testing-library/react-native';
 import React from 'react';
 import { View } from 'react-native';
-import { AppProvider, useApp } from '../../components/AppContext';
-import { Environment } from '../../lib/environment';
 
 // Mock expo-router
 jest.mock('expo-router', () => ({

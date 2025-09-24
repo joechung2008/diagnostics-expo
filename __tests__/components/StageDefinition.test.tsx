@@ -1,8 +1,8 @@
+import StageDefinition from '@/components/StageDefinition';
 import { render } from '@testing-library/react-native';
-import StageDefinition from '../../components/StageDefinition';
 
 // Mock the ThemeContext
-jest.mock('../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: () => ({
     colors: {
       background: '#ffffff',

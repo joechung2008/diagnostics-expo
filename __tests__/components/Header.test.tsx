@@ -1,8 +1,8 @@
+import Header from '@/components/Header';
 import { render } from '@testing-library/react-native';
-import Header from '../../components/Header';
 
 // Mock the ThemeContext
-jest.mock('../../components/ThemeContext', () => ({
+jest.mock('@/components/ThemeContext', () => ({
   useTheme: () => ({
     colors: {
       background: '#ffffff',
@@ -18,7 +18,7 @@ jest.mock('../../components/ThemeContext', () => ({
 const mockUseApp = jest.fn();
 
 // Mock the AppContext
-jest.mock('../../components/AppContext', () => ({
+jest.mock('@/components/AppContext', () => ({
   useApp: () => mockUseApp(),
 }));
 
