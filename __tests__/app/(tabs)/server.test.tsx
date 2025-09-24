@@ -1,21 +1,19 @@
+import ServerTab from '@/app/(tabs)/server';
 import { render } from '@testing-library/react-native';
 import React from 'react';
-import ServerTab from '../../../app/(tabs)/server';
 
-// Mock react-native
-jest.mock('react-native', () => ({
-  View: jest.fn((props) => 'View'),
-  Text: jest.fn((props) => 'Text'),
-  ActivityIndicator: jest.fn((props) => 'ActivityIndicator'),
-}));
-
-// Mock the context hooks
 jest.mock('@/components/AppContext', () => ({
   useApp: jest.fn(() => ({
     diagnostics: {
       serverInfo: {
-        serverVersion: '1.0.0',
-        uptime: '1 day',
+        deploymentId: 'test-deployment-123',
+        extensionSync: {
+          totalSyncAllCount: 42,
+        },
+        hostname: 'test-server.example.com',
+        nodeVersions: 'v18.17.0',
+        serverId: 'server-456',
+        uptime: 86400, // 1 day in seconds
       },
     },
     error: null,
@@ -29,21 +27,14 @@ jest.mock('@/components/ThemeContext', () => ({
       background: '#ffffff',
       primary: '#007bff',
       error: '#dc3545',
+      text: '#000000',
     },
   })),
 }));
 
-// Mock components
-const mockServerInfo = jest.fn(() => 'ServerInfo');
 jest.mock('@/components/ServerInfo', () => ({
-  default: mockServerInfo,
-}));
-
-// Mock expo-router
-jest.mock('expo-router', () => ({
-  Stack: {
-    Screen: jest.fn(() => null),
-  },
+  __esModule: true,
+  default: jest.fn(() => null),
 }));
 
 describe('ServerTab', () => {
@@ -51,21 +42,13 @@ describe('ServerTab', () => {
     jest.clearAllMocks();
   });
 
-  it('renders with correct title', () => {
-    render(<ServerTab />);
-    expect(jest.requireMock('expo-router').Stack.Screen).toHaveBeenCalledWith(
-      expect.objectContaining({
-        options: { title: 'Server Info' },
-      }),
-      undefined
-    );
-  });
-
   it('renders server info when server info exists', () => {
-    expect(() => render(<ServerTab />)).not.toThrow();
+    const mockServerInfo = jest.requireMock('@/components/ServerInfo').default;
+    render(<ServerTab />);
+    expect(mockServerInfo).toHaveBeenCalled();
   });
 
-  it('renders loading indicator when loading', () => {
+  it('shows loading indicator when loading', () => {
     const mockUseApp = jest.mocked(
       jest.requireMock('@/components/AppContext').useApp
     );
@@ -75,10 +58,11 @@ describe('ServerTab', () => {
       loading: true,
     });
 
-    expect(() => render(<ServerTab />)).not.toThrow();
+    const { getByLabelText } = render(<ServerTab />);
+    expect(getByLabelText('Loading diagnostics...')).toBeTruthy();
   });
 
-  it('renders error message when there is an error', () => {
+  it('shows error message when there is an error', () => {
     const mockUseApp = jest.mocked(
       jest.requireMock('@/components/AppContext').useApp
     );
@@ -88,7 +72,8 @@ describe('ServerTab', () => {
       loading: false,
     });
 
-    expect(() => render(<ServerTab />)).not.toThrow();
+    const { getByText } = render(<ServerTab />);
+    expect(getByText('Error loading diagnostics: Network error')).toBeTruthy();
   });
 
   it('renders nothing when server info does not exist', () => {
@@ -101,6 +86,8 @@ describe('ServerTab', () => {
       loading: false,
     });
 
-    expect(() => render(<ServerTab />)).not.toThrow();
+    const mockServerInfo = jest.requireMock('@/components/ServerInfo').default;
+    render(<ServerTab />);
+    expect(mockServerInfo).not.toHaveBeenCalled();
   });
 });
