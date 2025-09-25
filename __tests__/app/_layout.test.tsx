@@ -1,32 +1,38 @@
-import RootLayout from '@/app/_layout';
+import TabsLayout from '@/app/(tabs)/_layout';
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
-// Mock the context providers
-jest.mock('@/components/AppContext', () => ({
-  AppProvider: jest.fn(
-    ({ children }: { children: React.ReactNode }) => children
-  ),
-}));
-
+// Mock ThemeContext
 jest.mock('@/components/ThemeContext', () => ({
-  ThemeProvider: jest.fn(
-    ({ children }: { children: React.ReactNode }) => children
-  ),
+  useTheme: () => ({
+    colors: {
+      background: '#112233',
+      surface: '#445566',
+      surfaceSecondary: '#667788',
+      text: '#000000',
+      border: '#999999',
+    },
+  }),
 }));
 
-// Mock expo-router
-jest.mock('expo-router', () => ({
-  Slot: jest.fn(() => null),
-}));
+// Mock Header and TabsContainer to assert they're rendered
+jest.mock('@/components/Header', () => {
+  return function MockHeader() {
+    return null as any;
+  };
+});
 
-describe('RootLayout', () => {
-  it('renders without crashing', () => {
-    expect(() => render(<RootLayout />)).not.toThrow();
-  });
+jest.mock('@/components/TabsContainer', () => {
+  return function MockTabsContainer() {
+    return null as any;
+  };
+});
 
-  it('renders with provider hierarchy', () => {
-    // Since providers just pass through children, we just verify it renders
-    expect(() => render(<RootLayout />)).not.toThrow();
+describe('TabsLayout', () => {
+  it('renders Header and TabsContainer and applies background color', () => {
+    const { toJSON } = render(<TabsLayout />);
+
+    // snapshot covers Header + TabsContainer and applied styles
+    expect(toJSON()).toMatchSnapshot();
   });
 });

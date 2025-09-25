@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsLayout renders Header and TabsContainer and applies background color 1`] = `
+<SafeAreaView
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "#112233",
+      },
+    ]
+  }
+/>
+`;
