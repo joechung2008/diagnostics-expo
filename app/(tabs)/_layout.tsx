@@ -5,6 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Tabs, usePathname } from 'expo-router';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function TabsLayout() {
   const pathname = usePathname();
@@ -12,7 +13,9 @@ export default function TabsLayout() {
   const { currentId } = useApp();
 
   return (
-    <View style={[styles.container, { backgroundColor: colors.background }]}>
+    <SafeAreaView
+      style={[styles.container, { backgroundColor: colors.background }]}
+    >
       <Header />
       <View style={styles.tabsContainer}>
         <Tabs
@@ -66,7 +69,7 @@ export default function TabsLayout() {
           />
         </Tabs>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

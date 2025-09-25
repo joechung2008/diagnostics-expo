@@ -6,6 +6,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-native": "0.81.4",
+    "react-native-safe-area-context": "~5.6.0",
     "react-native-screens": "~4.16.0"
   },
   "devDependencies": {
