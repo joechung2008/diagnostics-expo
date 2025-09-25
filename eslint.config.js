@@ -39,6 +39,13 @@ module.exports = defineConfig([
       ...reactX.configs.recommended.rules,
       ...reactNative.configs.all.rules,
       'prettier/prettier': 'error',
+      'no-restricted-globals': [
+        'error',
+        {
+          name: 'global',
+          message: 'Use `globalThis` instead of `global` for cross-platform compatibility.',
+        },
+      ],
     },
   },
 ]);
