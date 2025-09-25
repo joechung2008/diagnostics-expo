@@ -5,17 +5,6 @@ import { Tabs, usePathname } from 'expo-router';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-export function computeIndexHref(pathname: string | null | undefined) {
-  return pathname !== '/' ? '/' : null;
-}
-
-export function computeExtensionHref(
-  pathname: string | null | undefined,
-  currentId?: string | null
-) {
-  return pathname === '/' && currentId ? `/extensions/${currentId}` : null;
-}
-
 export default function TabsContainer() {
   const pathname = usePathname();
   const { colors } = useTheme();
@@ -34,14 +23,14 @@ export default function TabsContainer() {
           },
         }}
       >
-          <Tabs.Screen
+        <Tabs.Screen
           name="index"
           options={{
             title: 'Extensions',
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="list" size={size} color={color} />
             ),
-            href: computeIndexHref(pathname) as any,
+            href: pathname !== '/' ? '/' : null,
           }}
         />
         <Tabs.Screen
@@ -51,7 +40,8 @@ export default function TabsContainer() {
             tabBarIcon: ({ color, size }) => (
               <Ionicons name="document-text" size={size} color={color} />
             ),
-            href: computeExtensionHref(pathname, currentId) as any,
+            href:
+              pathname === '/' && currentId ? `/extensions/${currentId}` : null,
           }}
         />
         <Tabs.Screen
