@@ -25,15 +25,19 @@ jest.mock('@/components/AppContext', () => ({
 // Mock expo-router
 const mockUsePathname = jest.fn();
 jest.mock('expo-router', () => {
+  const { createElement } = jest.requireActual('react');
+
   const MockTabs = ({ children, ...props }: any) => {
-    const createElement = require('react').createElement;
     return createElement('Tabs', props, children);
   };
+  MockTabs.displayName = 'MockTabs';
 
-  MockTabs.Screen = ({ ...props }: any) => {
-    const createElement = require('react').createElement;
+  const MockTabsScreen = ({ ...props }: any) => {
     return createElement('TabsScreen', props);
   };
+  MockTabsScreen.displayName = 'MockTabsScreen';
+
+  MockTabs.Screen = MockTabsScreen;
 
   return {
     Tabs: MockTabs,
