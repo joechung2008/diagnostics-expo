@@ -1,5 +1,5 @@
 import Extensions from '@/components/Extensions';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 
 // Mock the ThemeContext
 jest.mock('@/components/ThemeContext', () => ({
@@ -103,5 +103,96 @@ describe('Extensions', () => {
       <Extensions extensions={mockExtensions} onLinkClick={mockOnLinkClick} />
     );
     expect(toJSON()).toMatchSnapshot();
+  });
+
+  describe('interactions', () => {
+    it('calls onLinkClick when extension button is pressed', () => {
+      const { getByText } = render(
+        <Extensions extensions={mockExtensions} onLinkClick={mockOnLinkClick} />
+      );
+
+      const extensionButton = getByText('Extension A');
+      fireEvent.press(extensionButton);
+
+      expect(mockOnLinkClick).toHaveBeenCalledWith({
+        key: 'Extension A',
+        name: 'Extension A',
+        url: '',
+      });
+    });
+
+    it('calls onLinkClick with correct link data for multiple extensions', () => {
+      const { getByText } = render(
+        <Extensions extensions={mockExtensions} onLinkClick={mockOnLinkClick} />
+      );
+
+      const extensionButtonB = getByText('Extension B');
+      fireEvent.press(extensionButtonB);
+
+      expect(mockOnLinkClick).toHaveBeenCalledWith({
+        key: 'Extension B',
+        name: 'Extension B',
+        url: '',
+      });
+
+      jest.clearAllMocks();
+
+      const extensionButtonC = getByText('Extension C');
+      fireEvent.press(extensionButtonC);
+
+      expect(mockOnLinkClick).toHaveBeenCalledWith({
+        key: 'Extension C',
+        name: 'Extension C',
+        url: '',
+      });
+    });
+
+    it('does not crash when onLinkClick is undefined', () => {
+      const { getByText } = render(
+        <Extensions extensions={mockExtensions} onLinkClick={undefined} />
+      );
+
+      const extensionButton = getByText('Extension A');
+
+      // This should not throw an error
+      expect(() => {
+        fireEvent.press(extensionButton);
+      }).not.toThrow();
+    });
+
+    it('handles press events on empty extensions list', () => {
+      const { queryByText } = render(
+        <Extensions extensions={{}} onLinkClick={mockOnLinkClick} />
+      );
+
+      // No buttons should exist
+      expect(queryByText('Extension A')).toBeNull();
+      expect(mockOnLinkClick).not.toHaveBeenCalled();
+    });
+
+    it('calls onLinkClick for single extension', () => {
+      const singleExtension = {
+        'single-ext': {
+          extensionName: 'Single Extension',
+          manageSdpEnabled: true,
+        },
+      };
+
+      const { getByText } = render(
+        <Extensions
+          extensions={singleExtension}
+          onLinkClick={mockOnLinkClick}
+        />
+      );
+
+      const extensionButton = getByText('Single Extension');
+      fireEvent.press(extensionButton);
+
+      expect(mockOnLinkClick).toHaveBeenCalledWith({
+        key: 'Single Extension',
+        name: 'Single Extension',
+        url: '',
+      });
+    });
   });
 });
