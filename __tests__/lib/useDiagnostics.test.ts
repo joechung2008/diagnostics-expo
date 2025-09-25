@@ -4,7 +4,7 @@ import { useDiagnostics } from '@/lib/useDiagnostics';
 import { renderHook, waitFor } from '@testing-library/react-native';
 
 // Mock fetch
-global.fetch = jest.fn();
+globalThis.fetch = jest.fn();
 
 const mockDiagnostics: Diagnostics = {
   extensions: {
@@ -27,7 +27,7 @@ const mockDiagnostics: Diagnostics = {
 };
 
 describe('useDiagnostics', () => {
-  const mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+  const mockFetch = globalThis.fetch as jest.MockedFunction<typeof fetch>;
 
   beforeEach(() => {
     jest.resetAllMocks();
