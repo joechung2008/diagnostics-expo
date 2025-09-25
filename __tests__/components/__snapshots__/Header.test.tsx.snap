@@ -91,7 +91,9 @@ exports[`Header renders with PaaS Serverless hidden 1`] = `
             "fontSize": 14,
           }
         }
-      />
+      >
+        Public Cloud
+      </Text>
       <MockIonicons
         color="#000000"
         name="chevron-down"
@@ -248,7 +250,9 @@ exports[`Header renders with default state 1`] = `
             "fontSize": 14,
           }
         }
-      />
+      >
+        Public Cloud
+      </Text>
       <MockIonicons
         color="#000000"
         name="chevron-down"
@@ -451,7 +455,9 @@ exports[`Header renders with different environment 1`] = `
             "fontSize": 14,
           }
         }
-      />
+      >
+        Mooncake
+      </Text>
       <MockIonicons
         color="#000000"
         name="chevron-down"
@@ -654,7 +660,9 @@ exports[`Header renders with environment dropdown visible 1`] = `
             "fontSize": 14,
           }
         }
-      />
+      >
+        Fairfax
+      </Text>
       <MockIonicons
         color="#000000"
         name="chevron-down"

@@ -1,5 +1,5 @@
 import Header from '@/components/Header';
-import { render } from '@testing-library/react-native';
+import { fireEvent, render } from '@testing-library/react-native';
 
 // Mock the ThemeContext
 jest.mock('@/components/ThemeContext', () => ({
@@ -14,7 +14,11 @@ jest.mock('@/components/ThemeContext', () => ({
   }),
 }));
 
-// Create a mock for useApp
+// Create mocks for useApp functions
+const mockSetShowEnvironmentDropdown = jest.fn();
+const mockHandleEnvironmentSelect = jest.fn();
+const mockHandlePaasServerlessPress = jest.fn();
+const mockHandleWebsitesPress = jest.fn();
 const mockUseApp = jest.fn();
 
 // Mock the AppContext
@@ -29,14 +33,15 @@ jest.mock('@expo/vector-icons', () => ({
 
 describe('Header', () => {
   beforeEach(() => {
+    jest.clearAllMocks();
     mockUseApp.mockReturnValue({
-      environment: 'public',
+      environment: 'https://hosting.portal.azure.net/api/diagnostics',
+      setShowEnvironmentDropdown: mockSetShowEnvironmentDropdown,
       showEnvironmentDropdown: false,
-      setShowEnvironmentDropdown: jest.fn(),
-      handleEnvironmentSelect: jest.fn(),
       showPaasServerless: true,
-      handlePaasServerlessPress: jest.fn(),
-      handleWebsitesPress: jest.fn(),
+      handleEnvironmentSelect: mockHandleEnvironmentSelect,
+      handlePaasServerlessPress: mockHandlePaasServerlessPress,
+      handleWebsitesPress: mockHandleWebsitesPress,
     });
   });
 
@@ -47,13 +52,14 @@ describe('Header', () => {
 
   it('renders with environment dropdown visible', () => {
     mockUseApp.mockReturnValueOnce({
-      environment: 'staging',
+      environment:
+        'https://hosting.azureportal.usgovcloudapi.net/api/diagnostics',
+      setShowEnvironmentDropdown: mockSetShowEnvironmentDropdown,
       showEnvironmentDropdown: true,
-      setShowEnvironmentDropdown: jest.fn(),
-      handleEnvironmentSelect: jest.fn(),
       showPaasServerless: false,
-      handlePaasServerlessPress: jest.fn(),
-      handleWebsitesPress: jest.fn(),
+      handleEnvironmentSelect: mockHandleEnvironmentSelect,
+      handlePaasServerlessPress: mockHandlePaasServerlessPress,
+      handleWebsitesPress: mockHandleWebsitesPress,
     });
 
     const { toJSON } = render(<Header />);
@@ -62,13 +68,14 @@ describe('Header', () => {
 
   it('renders with different environment', () => {
     mockUseApp.mockReturnValueOnce({
-      environment: 'development',
+      environment:
+        'https://hosting.azureportal.chinacloudapi.cn/api/diagnostics',
+      setShowEnvironmentDropdown: mockSetShowEnvironmentDropdown,
       showEnvironmentDropdown: false,
-      setShowEnvironmentDropdown: jest.fn(),
-      handleEnvironmentSelect: jest.fn(),
       showPaasServerless: true,
-      handlePaasServerlessPress: jest.fn(),
-      handleWebsitesPress: jest.fn(),
+      handleEnvironmentSelect: mockHandleEnvironmentSelect,
+      handlePaasServerlessPress: mockHandlePaasServerlessPress,
+      handleWebsitesPress: mockHandleWebsitesPress,
     });
 
     const { toJSON } = render(<Header />);
@@ -77,16 +84,85 @@ describe('Header', () => {
 
   it('renders with PaaS Serverless hidden', () => {
     mockUseApp.mockReturnValueOnce({
-      environment: 'public',
+      environment: 'https://hosting.portal.azure.net/api/diagnostics',
+      setShowEnvironmentDropdown: mockSetShowEnvironmentDropdown,
       showEnvironmentDropdown: false,
-      setShowEnvironmentDropdown: jest.fn(),
-      handleEnvironmentSelect: jest.fn(),
       showPaasServerless: false,
-      handlePaasServerlessPress: jest.fn(),
-      handleWebsitesPress: jest.fn(),
+      handleEnvironmentSelect: mockHandleEnvironmentSelect,
+      handlePaasServerlessPress: mockHandlePaasServerlessPress,
+      handleWebsitesPress: mockHandleWebsitesPress,
     });
 
     const { toJSON } = render(<Header />);
     expect(toJSON()).toMatchSnapshot();
+  });
+
+  describe('interactions', () => {
+    it('calls setShowEnvironmentDropdown when environment button is pressed', () => {
+      const { getByText } = render(<Header />);
+
+      const environmentButton = getByText('Public Cloud');
+      fireEvent.press(environmentButton);
+
+      expect(mockSetShowEnvironmentDropdown).toHaveBeenCalledWith(true);
+    });
+
+    it('toggles environment dropdown when button is pressed multiple times', () => {
+      mockUseApp.mockReturnValue({
+        environment: 'https://hosting.portal.azure.net/api/diagnostics',
+        setShowEnvironmentDropdown: mockSetShowEnvironmentDropdown,
+        showEnvironmentDropdown: true,
+        showPaasServerless: true,
+        handleEnvironmentSelect: mockHandleEnvironmentSelect,
+        handlePaasServerlessPress: mockHandlePaasServerlessPress,
+        handleWebsitesPress: mockHandleWebsitesPress,
+      });
+
+      const { getAllByText } = render(<Header />);
+
+      const environmentButtons = getAllByText('Public Cloud');
+      fireEvent.press(environmentButtons[0]);
+
+      expect(mockSetShowEnvironmentDropdown).toHaveBeenCalledWith(false);
+    });
+
+    it('calls handleEnvironmentSelect when environment option is pressed', () => {
+      mockUseApp.mockReturnValue({
+        environment: 'https://hosting.portal.azure.net/api/diagnostics',
+        setShowEnvironmentDropdown: mockSetShowEnvironmentDropdown,
+        showEnvironmentDropdown: true,
+        showPaasServerless: true,
+        handleEnvironmentSelect: mockHandleEnvironmentSelect,
+        handlePaasServerlessPress: mockHandlePaasServerlessPress,
+        handleWebsitesPress: mockHandleWebsitesPress,
+      });
+
+      const { getByText } = render(<Header />);
+
+      const fairfaxOption = getByText('Fairfax');
+      fireEvent.press(fairfaxOption);
+
+      expect(mockHandleEnvironmentSelect).toHaveBeenCalledWith(
+        'https://hosting.azureportal.usgovcloudapi.net/api/diagnostics'
+      );
+    });
+
+    it('calls handlePaasServerlessPress when paasserverless button is pressed', () => {
+      const { getByText } = render(<Header />);
+
+      const paasButton = getByText('paasserverless');
+      fireEvent.press(paasButton);
+
+      expect(mockHandlePaasServerlessPress).toHaveBeenCalled();
+    });
+
+    it('calls handleWebsitesPress when websites button is pressed', () => {
+      const { getByText } = render(<Header />);
+
+      const websitesButton = getByText('websites');
+      fireEvent.press(websitesButton);
+
+      expect(mockHandleWebsitesPress).toHaveBeenCalled();
+    });
   });
 });
