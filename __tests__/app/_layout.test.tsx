@@ -1,38 +1,67 @@
-import TabsLayout from '@/app/(tabs)/_layout';
+import RootLayout from '@/app/_layout';
 import { render } from '@testing-library/react-native';
 import React from 'react';
 
-// Mock ThemeContext
-jest.mock('@/components/ThemeContext', () => ({
-  useTheme: () => ({
-    colors: {
-      background: '#112233',
-      surface: '#445566',
-      surfaceSecondary: '#667788',
-      text: '#000000',
-      border: '#999999',
-    },
-  }),
-}));
+// Mock providers with spies
+let mockAppProvider: jest.Mock;
+let mockThemeProvider: jest.Mock;
+let mockSafeAreaProvider: jest.Mock;
+let mockSlot: jest.Mock;
 
-// Mock Header and TabsContainer to assert they're rendered
-jest.mock('@/components/Header', () => {
-  return function MockHeader() {
-    return null as any;
+jest.mock('@/components/AppContext', () => {
+  mockAppProvider = jest.fn(
+    ({ children }: { children: React.ReactNode }) => children
+  );
+  return {
+    AppProvider: mockAppProvider,
   };
 });
 
-jest.mock('@/components/TabsContainer', () => {
-  return function MockTabsContainer() {
-    return null as any;
+jest.mock('@/components/ThemeContext', () => {
+  mockThemeProvider = jest.fn(
+    ({ children }: { children: React.ReactNode }) => children
+  );
+  return {
+    ThemeProvider: mockThemeProvider,
   };
 });
 
-describe('TabsLayout', () => {
-  it('renders Header and TabsContainer and applies background color', () => {
-    const { toJSON } = render(<TabsLayout />);
+jest.mock('react-native-safe-area-context', () => {
+  mockSafeAreaProvider = jest.fn(
+    ({ children }: { children: React.ReactNode }) => children
+  );
+  return {
+    SafeAreaProvider: mockSafeAreaProvider,
+  };
+});
 
-    // snapshot covers Header + TabsContainer and applied styles
+jest.mock('expo-router', () => {
+  mockSlot = jest.fn(() => null);
+  return {
+    Slot: mockSlot,
+  };
+});
+
+describe('RootLayout', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  it('renders with proper provider hierarchy', () => {
+    const { toJSON } = render(<RootLayout />);
     expect(toJSON()).toMatchSnapshot();
+  });
+
+  it('renders all required providers and components', () => {
+    render(<RootLayout />);
+
+    expect(mockSafeAreaProvider).toHaveBeenCalledTimes(1);
+    expect(mockThemeProvider).toHaveBeenCalledTimes(1);
+    expect(mockAppProvider).toHaveBeenCalledTimes(1);
+    expect(mockSlot).toHaveBeenCalledTimes(1);
+  });
+
+  it('renders without crashing', () => {
+    expect(() => render(<RootLayout />)).not.toThrow();
   });
 });
