@@ -5,7 +5,8 @@
       "@/*": ["./*"]
     },
     "strict": true,
-    "types": ["jest"]
+    "types": ["jest"],
+    "verbatimModuleSyntax": true
   },
   "exclude": ["dist/*", "react/*"],
   "include": [

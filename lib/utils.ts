@@ -1,4 +1,4 @@
-import { Extension, ExtensionInfo, KeyedNavLink } from './types';
+import type { Extension, ExtensionInfo, KeyedNavLink } from './types';
 
 export function isExtensionInfo(
   value: Extension | undefined

@@ -1,7 +1,7 @@
 import { darkTheme, lightTheme } from '@/lib/theme';
 import type { ThemeContextType, ThemeType } from '@/lib/types';
 import React, { createContext, use, useEffect, useMemo, useState } from 'react';
-import { Appearance, ColorSchemeName, Platform } from 'react-native';
+import { Appearance, Platform, type ColorSchemeName } from 'react-native';
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
