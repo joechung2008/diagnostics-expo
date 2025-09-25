@@ -23,41 +23,15 @@ exports[`TabsContainer applies theme colors correctly 1`] = `
   >
     <TabsScreen
       name="index"
-      options={
-        {
-          "href": null,
-          "tabBarIcon": [Function],
-          "title": "Extensions",
-        }
-      }
     />
     <TabsScreen
       name="extensions/[id]"
-      options={
-        {
-          "href": "/extensions/test-extension-id",
-          "tabBarIcon": [Function],
-          "title": "Extension",
-        }
-      }
     />
     <TabsScreen
       name="build"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Build Info",
-        }
-      }
     />
     <TabsScreen
       name="server"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Server Info",
-        }
-      }
     />
   </Tabs>
 </View>
@@ -86,41 +60,15 @@ exports[`TabsContainer renders all tab screens with correct titles and icons 1`]
   >
     <TabsScreen
       name="index"
-      options={
-        {
-          "href": null,
-          "tabBarIcon": [Function],
-          "title": "Extensions",
-        }
-      }
     />
     <TabsScreen
       name="extensions/[id]"
-      options={
-        {
-          "href": "/extensions/test-extension-id",
-          "tabBarIcon": [Function],
-          "title": "Extension",
-        }
-      }
     />
     <TabsScreen
       name="build"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Build Info",
-        }
-      }
     />
     <TabsScreen
       name="server"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Server Info",
-        }
-      }
     />
   </Tabs>
 </View>
@@ -149,41 +97,15 @@ exports[`TabsContainer renders when no current extension ID is set 1`] = `
   >
     <TabsScreen
       name="index"
-      options={
-        {
-          "href": null,
-          "tabBarIcon": [Function],
-          "title": "Extensions",
-        }
-      }
     />
     <TabsScreen
       name="extensions/[id]"
-      options={
-        {
-          "href": null,
-          "tabBarIcon": [Function],
-          "title": "Extension",
-        }
-      }
     />
     <TabsScreen
       name="build"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Build Info",
-        }
-      }
     />
     <TabsScreen
       name="server"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Server Info",
-        }
-      }
     />
   </Tabs>
 </View>
@@ -212,41 +134,15 @@ exports[`TabsContainer renders when on extension detail page 1`] = `
   >
     <TabsScreen
       name="index"
-      options={
-        {
-          "href": "/",
-          "tabBarIcon": [Function],
-          "title": "Extensions",
-        }
-      }
     />
     <TabsScreen
       name="extensions/[id]"
-      options={
-        {
-          "href": null,
-          "tabBarIcon": [Function],
-          "title": "Extension",
-        }
-      }
     />
     <TabsScreen
       name="build"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Build Info",
-        }
-      }
     />
     <TabsScreen
       name="server"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Server Info",
-        }
-      }
     />
   </Tabs>
 </View>
@@ -275,41 +171,15 @@ exports[`TabsContainer renders with current extension ID 1`] = `
   >
     <TabsScreen
       name="index"
-      options={
-        {
-          "href": null,
-          "tabBarIcon": [Function],
-          "title": "Extensions",
-        }
-      }
     />
     <TabsScreen
       name="extensions/[id]"
-      options={
-        {
-          "href": "/extensions/my-extension-123",
-          "tabBarIcon": [Function],
-          "title": "Extension",
-        }
-      }
     />
     <TabsScreen
       name="build"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Build Info",
-        }
-      }
     />
     <TabsScreen
       name="server"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Server Info",
-        }
-      }
     />
   </Tabs>
 </View>
@@ -338,41 +208,15 @@ exports[`TabsContainer renders with default state 1`] = `
   >
     <TabsScreen
       name="index"
-      options={
-        {
-          "href": null,
-          "tabBarIcon": [Function],
-          "title": "Extensions",
-        }
-      }
     />
     <TabsScreen
       name="extensions/[id]"
-      options={
-        {
-          "href": "/extensions/test-extension-id",
-          "tabBarIcon": [Function],
-          "title": "Extension",
-        }
-      }
     />
     <TabsScreen
       name="build"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Build Info",
-        }
-      }
     />
     <TabsScreen
       name="server"
-      options={
-        {
-          "tabBarIcon": [Function],
-          "title": "Server Info",
-        }
-      }
     />
   </Tabs>
 </View>

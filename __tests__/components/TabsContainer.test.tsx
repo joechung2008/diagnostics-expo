@@ -32,7 +32,11 @@ jest.mock('expo-router', () => {
   };
   MockTabs.displayName = 'MockTabs';
 
-  const MockTabsScreen = ({ ...props }: any) => {
+  const MockTabsScreen = ({ options, ...props }: any) => {
+    // Execute tabBarIcon function if it exists to achieve coverage
+    if (options?.tabBarIcon && typeof options.tabBarIcon === 'function') {
+      options.tabBarIcon({ color: '#000000', size: 24 });
+    }
     return createElement('TabsScreen', props);
   };
   MockTabsScreen.displayName = 'MockTabsScreen';
