@@ -1,11 +1,11 @@
 import { Environment, type EnvironmentType } from '@/lib/environment';
 import type { Diagnostics, KeyedNavLink } from '@/lib/types';
+import { useDiagnostics } from '@/lib/useDiagnostics';
 import { isExtensionInfo } from '@/lib/utils';
 import React, {
   createContext,
   use,
   useCallback,
-  useEffect,
   useMemo,
   useState,
 } from 'react';
@@ -48,9 +48,7 @@ export const AppProvider: React.FC<{
   const [environment, setEnvironment] = useState<EnvironmentType>(
     Environment.Public
   );
-  const [diagnostics, setDiagnostics] = useState<Diagnostics>();
-  const [error, setError] = useState<Error>();
-  const [loading, setLoading] = useState(false);
+  const { diagnostics, error, loading } = useDiagnostics(environment);
   const [showEnvironmentDropdown, setShowEnvironmentDropdown] = useState(false);
   const [extension, setExtension] = useState<any>();
   const [showList, setShowList] = useState<boolean>(true);
@@ -60,40 +58,12 @@ export const AppProvider: React.FC<{
     diagnostics?.extensions?.['paasserverless']
   );
 
-  useEffect(() => {
-    const fetchDiagnostics = async () => {
-      if (!environment) {
-        return;
-      }
-
-      setLoading(true);
-      setError(undefined);
-      try {
-        const response = await fetch(environment);
-        if (!response.ok) {
-          throw new Error(
-            `Failed to fetch diagnostics: ${response.statusText}`
-          );
-        }
-        const data: Diagnostics = await response.json();
-        setDiagnostics(data);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchDiagnostics();
-  }, [environment]);
-
   const handleEnvironmentSelect = useCallback(
     (env: EnvironmentType) => {
       setEnvironment(env);
       setExtension(undefined);
       setShowList(true);
       setCurrentId(undefined);
-      setError(undefined);
       setShowEnvironmentDropdown(false);
       router.push('/');
     },
