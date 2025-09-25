@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TabsLayout applies theme background color to container 1`] = `
+<SafeAreaView
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "#ffffff",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`TabsLayout renders SafeAreaView with correct styles 1`] = `
+<SafeAreaView
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "#ffffff",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`TabsLayout renders with correct structure and theme colors 1`] = `
+<SafeAreaView
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "#ffffff",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`TabsLayout uses flex: 1 container style 1`] = `
+<SafeAreaView
+  style={
+    [
+      {
+        "flex": 1,
+      },
+      {
+        "backgroundColor": "#ffffff",
+      },
+    ]
+  }
+/>
+`;
