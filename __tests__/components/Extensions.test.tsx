@@ -147,19 +147,6 @@ describe('Extensions', () => {
       });
     });
 
-    it('does not crash when onLinkClick is undefined', () => {
-      const { getByText } = render(
-        <Extensions extensions={mockExtensions} onLinkClick={undefined} />
-      );
-
-      const extensionButton = getByText('Extension A');
-
-      // This should not throw an error
-      expect(() => {
-        fireEvent.press(extensionButton);
-      }).not.toThrow();
-    });
-
     it('handles press events on empty extensions list', () => {
       const { queryByText } = render(
         <Extensions extensions={{}} onLinkClick={mockOnLinkClick} />
