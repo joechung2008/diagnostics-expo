@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+yarn-error.log
+dist
+coverage
+android
+ios
+*.test.*
+__tests__
+.git
+.gitignore
+Dockerfile
+.dockerignore
+*.md
